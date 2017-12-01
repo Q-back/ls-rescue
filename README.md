@@ -1,2 +1,3 @@
 # ls-rescue
-did you delete something accidentaly in your Linux? Or maybe you regred that you unpacket tar? Luckily you have ls output before you did it.
+Download this tool, save your ls before and after your mistake to 2 separate files, and run python3 ls-rescue.py ls1_file ls2_file.
+You'll see what changed.
