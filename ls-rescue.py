@@ -18,7 +18,7 @@ def read_files(file1, file2):
 	return (ls1, ls2)
 
 try:
-	description = ""
+	description = "Find differences between two ls outputs"
 	parser = argparse.ArgumentParser(description=description)
 	parser.add_argument("-l", action="store_true", help="Print result in list format")
 	parser.add_argument("-f", "--file", nargs=2, help="Use files instead of standard input. Example: ls-rescue -f file1.txt path/to/file2.txt")
