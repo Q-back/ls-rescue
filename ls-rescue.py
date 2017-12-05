@@ -20,8 +20,7 @@ def read_files(file1, file2):
 try:
 	description = ""
 	parser = argparse.ArgumentParser(description=description)
-	# parser.add_argument("files", default=None, nargs=2, help="Two files with ls output. Example: ls-rescue -f file1.txt path/to/file2.txt", type=str)
-	# parser.add_argument("file2", default=None, help="second file with ls output", type=str)
+	parser.add_argument("-l", action="store_true", help="Print result in list format")
 	parser.add_argument("-f", "--file", nargs=2, help="Use files instead of standard input. Example: ls-rescue -f file1.txt path/to/file2.txt")
 	args = parser.parse_args()
 	if args.file:
@@ -43,9 +42,16 @@ try:
 			modified.append(listed_item)
 	
 	modified_items = ""
-	for item in modified:
-		modified_items += item+" "
-	print("MODIFIED ITEMS: "+modified_items)
+
+	if args.l:
+		i = 1
+		for item in modified:
+			modified_items += "\n("+str(i)+") " + item
+			i+=1
+	else:
+		for item in modified:
+			modified_items += item+" "
+	print(str( len(modified) ) + " MODIFIED ITEMS: " + modified_items)
 
 except KeyboardInterrupt:
 	print("\nInterrupted by user. Exit.")
